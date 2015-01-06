@@ -19,14 +19,9 @@ ActiveRecord::Schema.define(version: 20150106013248) do
 
   create_table "fields", force: true do |t|
     t.string   "name"
-    t.spatial  "shape1",       limit: {:srid=>4326, :type=>"multi_polygon", :geographic=>true}
-    t.spatial  "lonlat",       limit: {:srid=>4326, :type=>"point", :geographic=>true}
-    t.spatial  "lonlatheight", limit: {:srid=>4326, :type=>"point", :has_z=>true, :geographic=>true}
+    t.spatial  "shape",      limit: {:srid=>4326, :type=>"multi_polygon", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.spatial  "shape2",       limit: {:srid=>0, :type=>"geometry"}
-    t.spatial  "shape3",       limit: {:srid=>0, :type=>"geometry"}
-    t.spatial  "path",         limit: {:srid=>3785, :type=>"line_string"}
   end
 
 end
