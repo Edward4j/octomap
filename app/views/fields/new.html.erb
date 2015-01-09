@@ -2,4 +2,35 @@
 
 <%= render 'form' %>
 
+<script>
+
+    map.on('draw:created', function (e) {
+        var type = e.layerType,
+                layer = e.layer;
+        drawnItems.addLayer(layer);
+
+        shape = layer.toGeoJSON();
+        shape_for_db = JSON.stringify(shape);
+
+        $("#field_shape").val(shape_for_db)
+
+    });
+
+    map.on('draw:edited', function (e) {
+        var layers = e.layers;
+        layers.eachLayer(function (layer) {
+            shape = layer.toGeoJSON();
+            shape_for_db = JSON.stringify(shape);
+
+            $("#field_shape").val(shape_for_db)
+        });
+    });
+
+    map.on('draw:deleted', function (e) {
+        shape_for_db = null
+        $("#field_shape").val(shape_for_db)
+    });
+
+</script>
+
 <%= link_to 'Back', fields_path %>

@@ -1,6 +1,24 @@
-<h1>Editing field</h1>
+<h1>Editing field <%= @field.name %></h1>
+<div id="content">
+  </br>
+  <%= link_to 'Show', @field %> |
+  <%= link_to 'Back', fields_path %>
+  </br>
 
 <%= render 'form' %>
+</div>
+<script type='text/javascript'>
 
-<%= link_to 'Show', @field %> |
-<%= link_to 'Back', fields_path %>
+    map.on('draw:edited', function (e) {
+        var layers = e.layers;
+        layers.eachLayer(function (layer) {
+            shape = layer.toGeoJSON();
+            shape_for_db = JSON.stringify(shape);
+
+            $("#field_shape").val(shape_for_db)
+        });
+    });
+
+
+</script>
+

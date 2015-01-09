@@ -42,3 +42,5 @@ gem 'spring',        group: :development
 gem 'pg'
 gem 'activerecord-postgis-adapter'
 gem 'rgeo-geojson'
+
+gem 'leaflet-js'
