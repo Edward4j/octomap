@@ -9,6 +9,8 @@ class Field < ActiveRecord::Base
                    string = coords[0].collect{|c| s = ''; s << c[1].to_s << ' ' << c[0].to_s; s}.join(', ')
                    string = "MULTIPOLYGON (((" << string << ")))"
                    string
+                 else
+                   value
                  end
     self[:shape] = temp_value
   end
