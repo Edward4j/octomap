@@ -47,7 +47,7 @@
 
     // Initialise the FeatureGroup to store editable layers
     map.addLayer(drawnItems);
-//    map.fitBounds(bounds);
+
 
     // Initialise the draw control and pass it the FeatureGroup of editable layers
     var drawControl = new L.Control.Draw({
@@ -70,5 +70,5 @@
     });
 
     map.addControl(drawControl);
-
+    map.fitBounds(bounds);
 </script>
